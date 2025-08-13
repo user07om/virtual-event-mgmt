@@ -1,0 +1,25 @@
+{
+  "name": "virtual-event-mgmt",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jest": "^30.0.5",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.18.0",
+    "mongodb-memory-server": "^10.2.0",
+    "mongoose": "^8.17.1",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
+  }
+}
