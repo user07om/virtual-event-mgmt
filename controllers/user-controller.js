@@ -17,8 +17,6 @@ const LoginUser = async (req, res) => {
     const query = username ? { username } : { email }
     const user = await users.findOne(query)
 
-    // sing the token for autherization.
-    const token = jwt.sign({ _id: user.id }, process.env.SECRET_KEY, { expiresIn: "1d" });
 
 
     //checking all the required fields are given by user or not.
@@ -29,9 +27,11 @@ const LoginUser = async (req, res) => {
     //chekc is user exist or not... username or email.
     if (!user) return res.status(400).json({message: "user not foudn"})
 
-
     const isPswdCorrect = await bcrypt.compare(password, user.password);
     if (!isPswdCorrect) return res.status(400).json({message: "password incorrect!"}) 
+
+    // sing the token for autherization.
+    const token = jwt.sign({ _id: user.id }, process.env.SECRET_KEY, { expiresIn: "1d" });
 
     return res.status(200).json({
       message: "User Successfully login!",
