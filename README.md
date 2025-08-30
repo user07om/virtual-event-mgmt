@@ -462,24 +462,3 @@ MIT — do whatever you want, just don’t blame us if it breaks in prod. 😉
 ## 👋 Contributing
 
 PRs welcome! Please include tests and follow the existing code style.
-
----
-
-### Final Notes for DevOps-minded Prod Runs
-
-* Package as OCI image with a **non-root** user.
-* Expose only port 3000, run behind reverse proxy (Nginx/Traefik).
-* Configure resource limits (CPU/mem) and autoscaling (HPA).
-* Use **rolling** or **blue/green** deploys. Persist nothing when in-memory!
-* For Mongo, prefer managed service or replica set with TLS and SCRAM auth.
-
-
-
----
-const moment = require('moment');
-if (!moment(date, "YYYY-MM-DD", true).isValid()) {
-  return res.status(400).json({ message: "Invalid date format" });
-}
-if (!moment(time, "HH:mm", true).isValid()) {
-  return res.status(400).json({ message: "Invalid time format" });
-}
